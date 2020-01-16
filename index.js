@@ -1,14 +1,14 @@
-const canvas = document.getElementById('CanvasElement');
-const ctx = canvas.getContext("2d");
+const ctx = Table.canvas.getContext("2d");
+Table.createCanvas();
 Table.createGrid(ctx);
-Snake.food = Table.grid[20][20];
-Table.grid[20][20].food = true;//Create the first food
+Snake.getStarted();
+//Snake.tail.push(Table.grid[Snake.x][Snake.y])
+// Snake.pickNewLocationForFood()//Create the first food
 function draw() {
 	ctx.fillStyle = "white"
-	ctx.fillRect(0,0,600,600)
+	ctx.fillRect(0,0,Table.canvasWidth, Table.canvasHeight)
 	Snake.update()
 }
-Table.grid[20][20].render()
 
 setInterval(function() {draw()}, 164)
 draw()
